@@ -1,0 +1,164 @@
+.modal-productos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Montserrat';
+}
+
+#ModalEditar,
+#ModalAdd {
+  /* display: flex; */
+  display: none;
+}
+
+.modal-overlay-productos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -9;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.modal-content-productos {
+  background-color: #fff;
+  border: .2rem solid #C4C754;
+  min-height: 43.063px;
+  min-width: 50.5rem;
+  width: 55%;
+  height: 85%;
+  padding: 1rem;
+  border-radius: 1.2rem;
+}
+
+.modal-header-productos {
+  width: 100%;
+  height: auto;
+  text-align: end;
+}
+
+.modal-header-productos button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal-footer-productos {
+  width: 13.188rem;
+  margin: 0 auto;
+}
+
+.modal-body-productos {
+  align-items: center;
+  position: relative;
+  margin: 1rem auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body-productos h1 {
+  text-align: center;
+  margin: 0 auto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+
+.modal-details-productos {
+  margin-top: 3rem;
+  width: 80%;
+}
+
+.modal-container-productos {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-container-productos img {
+  max-width: 6.875rem;
+  max-height: 6.875rem;
+}
+
+.modal-container-productos .inputgroup {
+  width: 75%;
+  height: 100%;
+}
+
+.modal-container-productos input,
+.modal-container-productos textarea {
+  box-sizing: border-box;
+  padding: 1rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.17);
+  border-radius: 16px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+
+.modal-container-productos input {
+  width: 100%;
+  height: 57px;
+}
+
+.modal-container-productos textarea {
+  width: 100%;
+  height: 91px;
+  resize: none;
+}
+
+.modal-container-productos textarea {
+  height: 100px;
+}
+
+/* ================== */
+/* SECCION MODAL ADD */
+/* ================== */
+
+.modal-container-productos .modal-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.modal-container-productos .modal-imagen img {
+  max-width: 12.875rem;
+  max-height: 6.875rem;
+}
+
+.inputgroupAdd {
+  display: grid;
+  width: 75%;
+  grid-template-areas:
+    "nombre nombre nombre"
+    "precio precio gramos";
+  grid-gap: 0.5rem;
+}
+
+#modalNombreAdd {
+  grid-area: nombre;
+}
+
+#modalPrecioAdd {
+  grid-area: precio;
+}
+
+#modalGramosAdd {
+  grid-area: gramos;
+}

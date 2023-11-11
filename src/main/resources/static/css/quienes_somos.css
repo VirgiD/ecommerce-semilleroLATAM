@@ -1,0 +1,79 @@
+@import '/estilos.css';
+.container_encabezado{
+    margin: 0.5rem;
+}
+
+h3{
+    text-align: center;
+}
+
+.texto h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container_p{
+    width: 80rem;
+    font-size: 1.5rem;
+    margin-left: 8%;
+}
+
+.container_video{
+    width: 80rem;
+    height: 45rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media screen and (max-width: 2560px) {
+
+
+    .texto {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .container_p {
+        font-size: 1.1rem;
+        width: 97%;
+        margin: 0 auto;
+    }
+
+    .container_video{
+        max-inline-size: 100%;
+        block-size: auto;
+        margin-bottom: 25px;
+    }
+
+    iframe {
+        width: 50%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    
+    .container_encabezado {
+        overflow: hidden;
+        border-radius: 10px;
+        max-inline-size: 100%;
+        block-size: 100px;    
+    }
+
+    .container_encabezado img{
+        transform: scale(2);
+        margin-top: 5%;
+    }
+
+    .texto {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .container_p {
+        font-size: 1.1rem;
+        width: 97%;
+        margin: 0 auto;
+    }
+}

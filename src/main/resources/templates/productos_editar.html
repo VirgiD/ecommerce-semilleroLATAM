@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" th:href="@{/assets/puntoOrganicoLogo.png}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/estilos_generales.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/productos_editar.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/card_products.css}">
+  <title>Punto Orgánico</title>
+</head>
+
+<body>
+
+  <header th:replace="./fragments/navbar :: header"></header>
+
+  <main class="container">
+    <div class="container_editar_productos">
+      <div class="circulo">
+        <img th:src="@{/assets/img/img_loginGestion/editar.png}" alt="editar productos" width="50%">
+        <p>Editar productos</p>
+      </div>
+    </div>
+
+    <div th:replace="./fragments/cardproducts :: cardproducts"></div>
+
+    <div class="container_header">
+      <p class=""></p>
+      <button id="myButton" class="btn-secondary" data-toggle="modal" onclick="toggleModalDisplay('ModalAdd')">
+        <img th:src="@{/assets/icons/suma.svg}" alt="">
+        Añadir producto
+      </button>
+    </div>
+
+    <div th:each="producto : ${productos}" class="cards-container">
+      <div class="card">
+        <div class="card_col-left">
+          <img id="imagen" th:src="@{/foto/producto/__${producto.id}__}">
+          <div class="card_details">
+            <div class="card_details-price">
+              <h3 id="titulo" th:text="${producto.nombre}"></h3>
+              <h3 id="precio" th:text="'$'+${producto.precioFormatted}"></h3>
+              <h3 id="peso" th:text="${producto.peso} +' grs'"></h3>
+            </div>
+            <p id="descripcion" th:text="${producto.descripcion}" class="card_details-description"></p>
+          </div>
+        </div>
+
+        <div class="card_col-right">
+          <button class="btn-primary"
+            th:attr="data-producto-id=${producto.id},  data-producto-nombre=${producto.nombre} , data-producto-precio=${producto.precio} ,  data-producto-peso=${producto.peso} , data-producto-descripcion=${producto.descripcion},data-producto-imagen=@{/foto/producto/__${producto.id}__}"
+            onclick="abrirModalEditarProducto(this)">
+            <img th:src="@{/assets/icons/lapiz.svg}" alt="">
+            Editar
+          </button>
+          <button class="btn-secondary" th:attr="data-producto-id=${producto.id}"
+            onclick="confirmDelete('product', this)">
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal_confirm"></div>
+  </main>
+
+  <footer th:replace="./fragments/footer :: footer"></footer>
+
+  <!-- CONFIRM DELETED -->
+
+
+  <!-- MODAL EDITAR PRODUCTO -->
+  <div class="modal_productos" id="ModalEditar">
+    <div class="modal_overlay_productos"></div>
+    <div class="modal_content_productos">
+
+      <div class="modal_header_productos">
+        <button id="Close" type="button" class="btn_modal_close" onclick="toggleModalDisplay('ModalEditar')">
+          X
+        </button>
+      </div>
+
+
+      <div class="modal_body_productos">
+        <h1>Editar producto:</h1>
+
+        <div class="modal_details_productos">
+          <div class="modal_container_productos">
+
+
+            <div class="modal_imagen_editar">
+              <img id="modalFotoEditar" src="" alt="" onclick="editarFoto()">
+              <p onclick="editarFoto()" >Editar</p>
+              <input type="file" id="foto_editar_producto" name="foto" accept="image/multipart" onchange="guardarNuevafoto(event)">
+            </div>
+
+            <div class="inputgroupAdd">
+              <input type="text" id="modalNombreEditar" name="nombre" placeholder="Nombre del producto." required>
+              <input type="number" id="modalPesoEditar" name="peso" placeholder="Peso del producto." required>
+              <input type="number" id="modalPrecioEditar" name="precio" placeholder="Precio del producto." step="0.01" required>
+            </div>
+
+          </div>
+          <div class="modal_container_productos">
+            <textarea id="modalDescripcionEditar" placeholder="(Máx 250 caracteres)" maxlength="249"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal_footer_productos">
+        <button id="modalIdProducto" type="button" class="btn-primary" onclick="guardarProducto(this)">Guardar
+          cambios</button>
+        <button type="button" class="btn-secondary" data-dismiss="modal"
+          onclick="toggleModalDisplay('ModalEditar')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ANADIR PRODUCTO -->
+  <div class="modal_productos" id="ModalAdd">
+    <div class="modal_overlay_productos"></div>
+
+    <form th:action="@{/productos/cargarproducto}" method="post" enctype="multipart/form-data">
+      <div class="modal_content_productos">
+
+        <div class="modal_header_productos">
+          <button id="CloseAdd" type="button" class="btn_modal_close" onclick="toggleModalDisplay('ModalAdd')">
+            X
+          </button>
+        </div>
+
+        <div class="modal_body_productos">
+          <div class="circulo">
+            <img th:src="@{/assets/img/img_loginGestion/seccion.png}" alt="editar productos" width="50%">
+            <p>Añadir producto:
+            <p>
+          </div>
+          <div class="modal_details_productos">
+
+            <div class="modal_container_productos">
+
+              <div class="modal_imagen">
+                <img id="imagen_nueva" th:src="@{/assets/aniadir_foto_ejemplo.svg}" alt="" onclick="agregarNuevaFoto()">
+                <input type="file" id="foto_producto_nuevo" name="foto" accept="image/multipart" onchange="cambiarImagen(event)">
+              </div>
+
+              <div class="inputgroupAdd">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre del producto" required>
+                <div class="inline">
+                  <input type="number" id="precio" name="precio" placeholder="Precio" step="0.01" required>
+                  <input type="number" id="peso" name="peso" placeholder="Peso" required>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal_container_productos">
+              <textarea id="modalDescripcionAdd" placeholder="Descripción del producto (Máx 250 caracteres)" name="descripcion" maxlength="249"
+                required></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal_footer_productos">
+          <button type="submit" class="btn-primary">Guardar cambios</button>
+          <button type="button" class="btn-secondary" data-dismiss="modal"
+            onclick="toggleModalDisplay('ModalAdd')">Cerrar</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+
+</body>
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+<script type="text/javascript" th:src="@{/js/productos_editar.js}"></script>
+<script type="text/javascript" th:src="@{/js/card_products.js}"></script>
+</html>

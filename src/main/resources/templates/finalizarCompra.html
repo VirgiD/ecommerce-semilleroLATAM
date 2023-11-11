@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../static/assets/img/puntoOrganicoLogo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos_generales.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/fincompra.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/card_products.css}">
+
+    <!--ISMAEL BORRA ESTO -->
+    <!-- <link rel="shortcut icon" href="../static/assets/puntoOrganicoLogo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../static/css/estilos_generales.css">
+
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/fincompra.css">
+    <link rel="stylesheet" href="../static/css/card_products.css"> -->
+
+
+    <title>Punto Orgánico</title>
+</head>
+
+<body>
+    <header th:replace="./fragments/navbar :: navbar"></header>
+    <!-- <header th:fragment="navbar">
+
+        <nav>
+            <div class="col right_col">
+                <button id="menu_icon" class="menu_icon"></button>
+            </div>
+
+            <div class="col center_col">
+                <a th:href="@{/}">
+                    <img th:src="@{/assets/puntoOrganicoLogo.png}" alt="Logo" />
+                </a>
+            </div>
+
+            <form action="/productos/listar" method="get">
+                <div class="col left_col">
+                    <input type="text" name="palabraClave" id="palabraClave" th:value="${palabraClave}"
+                        placeholder="Buscar producto" />
+                    <button class="search_icon" type="submit">
+                        <i class="fas fa-search" aria-label="Buscar"></i>
+                    </button>
+                </div>
+            </form>
+
+            <div class="left_col_bag">
+                <img th:src="@{/assets/img/bolsa.png}" alt="shopping bag" onclick="toggleShopingBAG()">
+                <p id="shoppingBAG">0</p>
+            </div>
+
+
+            <div id="menu_options" class="menu_options">
+                <div class="options_container">
+                    <ul>
+                        <li><a class="options" th:href="@{/}">Home</a></li>
+                        <li><a class="options" th:href="@{/productos/listar}">Nuestros productos</a></li>
+                        <li><a class="options" th:href="@{/quienessomos}">¿Quiénes somos?</a></li>
+                        <li><a class="options" th:href="@{/#revende_con_nosotros}">Revende con nosotros</a></li>
+                        <li><a class="options" th:href="@{/login}">Iniciar sesión como Administrador</a></li>
+                </div>
+            </div>
+
+        </nav>
+    </header> -->
+
+    <main>
+
+        <div class="contenedor">
+            <div class="contenedor__titulo">
+                <p>Tu pedido</p>
+            </div>
+            <!-- Pedidos recibidos desde el localStorage -->
+            <div id="contenedor__pedidos" class="contenedor__pedidos">
+
+            </div>
+
+            <div class="contenedor__total">
+                <p id="total"></p>
+            </div>
+
+
+            <div class="contenedor__metodos">
+                <div class="contendor__metodos__col">
+                    <p>Método de pago:</p>
+                    <div class="opciones row__efectivo">
+                        <label for="checkbox-efectivo" class="elemento-seleccionable">
+                            <input type="checkbox" id="checkbox-efectivo" name="metodo-pago" value="Efectivo">
+                            <span class="checkmark efectivo"></span>
+                            Efectivo
+                        </label>
+                    </div>
+                    <div class="opciones row__transferencia">
+                        <label for="checkbox-transferencia" class="elemento-seleccionable">
+                            <input type="checkbox" id="checkbox-transferencia" name="metodo-pago" value="Transferencia">
+                            <span class="checkmark transferencia"></span>
+                            Transferencia
+                        </label>
+                    </div>
+                    <div class="opciones row__mercadoPago">
+                        <label for="checkboxMP" class="elemento-seleccionable">
+                            <input type="checkbox" id="checkboxMP" name="metodo-pago" value="MercadoPago">
+                            <span class="checkmark mp"></span>
+                            MercadoPago
+                        </label>
+
+                    </div>
+                </div>
+                <div class="contendor__metodos__col">
+                    <p>Modo de entrega:</p>
+                    <div class="opciones row__local">
+                        <label for="checkbox-retiro" class="elemento-seleccionable">
+                            <input type="checkbox" id="checkbox-retiro" name="modo-entrega" value="retiroPorLocal" data-label="Retiro por el Local">
+                            <span class="checkmark retiro"></span>
+                            Retiro por el local
+                        </label>
+                        <div class="label-descripcion">
+                            Carlos Thays 2099 - Godoy Cruz - Mendoza<br />
+                        </div>
+
+                    </div>
+
+                    <div class="opciones row__domicilio">
+                        <label for="checkbox-envio" class="elemento-seleccionable">
+                            <input type="checkbox" id="checkbox-envio" name="modo-entrega" value="envioDomicilio" data-label="Envío a domicilio">
+                            <span class="checkmark envio"></span>
+                            Envío a domicilio
+                        </label>
+                        <div class="label-descripcion">
+                            Solo entregas en Microcentro de Mendoza
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="contenedor__mensaje"> Recibirás la información necesaria para finalizar la compra a través de
+                WhatsApp!
+            </div>
+
+            <div class="contenedor__botones">
+                <button id="finalizarCompraBtn" class="btn-secondary" type="button" onclick="finalizarCompra()" disabled>
+                    <div>
+                        Finalizar compra
+                        <img src="../assets/whatsapp_logo.svg" alt="logo whatsapp">
+                        <img src="../assets/logoWappColor.svg" alt="logo whatsapp">
+                    </div>
+                </button>
+                <button class="btn-primary">Seguir comprando</button>
+            </div>
+        </div>
+
+
+
+        <section class="imagenes">
+            <img th:src="@{/assets/img/img_home/img_pie1.png}" alt=""  />
+            <img th:src="@{/assets/img/img_home/img_pie2.png}" alt=""  />
+            <img th:src="@{/assets/img/img_home/img_pie3.png}" alt=""  />
+            <img th:src="@{/assets/img/img_home/img_pie4.png}" alt=""  />
+            <img th:src="@{/assets/img/img_home/img_pie5.png}" alt=""  />
+            <img th:src="@{/assets/img/img_home/img_pie6.png}" alt=""  />
+            <img th:src="@{/assets/img/img_home/img_pie7.png}" alt=""  />
+            <img th:src="@{/assets/img/img_home/img_pie8.png}" alt=""  />
+            <img th:src="@{/assets/img/img_home/img_pie6.png}" alt=""  />
+        </section>
+
+    </main>
+
+
+    <header th:replace="./fragments/footer :: footer"></header>
+
+</body>
+
+<script th:src="@{/js/navbar.js}"></script>
+<script th:src="@{/js/fincompra.js}"></script>
+<script th:src="@{/js/controller/mostrarProductosCompradosController.js}"></script>
+<script th:src="@{/js/controller/comprasController.js}"></script>
+</html>

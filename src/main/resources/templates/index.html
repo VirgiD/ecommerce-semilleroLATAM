@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" th:href="@{/assets/puntoOrganicoLogo.png}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/estilos_generales.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/carrito_compras.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/card_products.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+  <title>Punto Orgánico</title>
+</head>
+
+
+<body>
+
+  <header th:replace="./fragments/navbar :: header"></header>
+
+  <!-- CARRITO COMPRAS -->
+  <div id="box_shopping" class="shoppingcard-container">
+    <span class="salir" onclick="toggleShopingBAG()">X</span>
+    <p>Tu pedido</p>
+    <div id="secondCol" class="row-top">
+      <div id="no_hay_productos_mensaje">
+        <p style="opacity: 40%; text-align: center; width: 100%;">NO HAY PRODUCTOS AGREGADOS</p>
+      </div>
+    </div>
+    <div id="thirdCol" class="total">
+      Total: $0
+    </div>
+    <div id="fourdCol" class="row row-bottom">
+      <button type="button" class="btn-primary" onclick="verPedido();">Ver pedido</button>
+      <button type="button" class="btn-secondary" data-dismiss="modal" onclick="toggleShopingBAG()">Seguir
+        comprando</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="somos_log">
+      <img th:src="@{assets/img/img_home/somos.png}" alt="" width="100%" />
+    </div>
+
+    <div th:replace="./fragments/cardproducts :: cardproducts"></div>
+
+    <div class="container_flower">
+      <img class="img_flower" th:src="@{assets/img/img_home/img_flower.png}" alt="" />
+    </div>
+
+    <div class="container_img_pie">
+      <img th:src="@{assets/img/img_home/img_pie1.png}" alt="" class="img_pie" />
+      <img th:src="@{assets/img/img_home/img_pie2.png}" alt="" class="img_pie" />
+      <img th:src="@{assets/img/img_home/img_pie3.png}" alt="" class="img_pie" />
+
+      <img th:src="@{assets/img/img_home/img_pie4.png}" alt="" class="img_pie" />
+      <img th:src="@{assets/img/img_home/img_pie5.png}" alt="" class="img_pie" />
+      <img th:src="@{assets/img/img_home/img_pie6.png}" alt="" class="img_pie" />
+
+      <img th:src="@{assets/img/img_home/img_pie7.png}" alt="" class="img_pie" />
+      <img th:src="@{assets/img/img_home/img_pie8.png}" alt="" class="img_pie" />
+      <img th:src="@{assets/img/img_home/img_pie6.png}" alt="" class="img_pie" />
+    </div>
+
+    <div class="container_como_comprar">
+      <h1>¿Cómo comprar?</h1>
+      <div class=container_img>
+        <img class="img_comprar1" th:src="@{assets/img/img_home/comprar1.png}" width="25%" alt="" />
+        <img class="img_comprar2" th:src="@{assets/img/img_home/comprar2.png}" width="25%" alt="" />
+        <img class="img_comprar3" th:src="@{assets/img/img_home/comprar3.png}" width="25%" alt="" />
+      </div>
+    </div>
+
+    <div class="container_revende" id="revende_con_nosotros">
+      <div class="recuadro">
+        <h2>¡Revende con nosotros!</h2>
+        <p class="info-revende">Puedes encargar tu pedido al por <br> mayor y revender nuestro producto</p>
+
+        <img class="foto" th:src="@{assets/img/img_home/imgcorazonsinfondo.png}" alt="" width="50%">
+
+        <a class="btn_more_info"
+          th:href="@{https://wa.me/+5492615940591?text=¡Hola+Punto+Organico!+me+interesa+vender+sus+productos,+¿podrían+enviarme+información?}">
+          <img class="whatsapp" th:src="@{assets/img/img_footer/whatsapp.png}" alt="Whatsapp" width="27px">
+          Más información
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer th:replace="./fragments/footer :: footer"></footer>
+
+</body>
+<!-- Script necesarios en esta vista
+  1. funcionalidad de la navbar
+  2. mostrar productos en bolsa de compra
+  3. restablecer cantidad de productos elegidos
+
+-->
+
+<script th:src="@{/js/navbar.js}"></script>
+<script type="text/javascript" th:src="@{/js/card_products.js}"></script>
+<script th:src="@{/js/controller/comprasController.js}"></script>
+
+<!-- <script th:src="@{/js/compras_productos.js}"></script> -->
+
+</html>

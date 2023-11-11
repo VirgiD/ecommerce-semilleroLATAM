@@ -1,0 +1,145 @@
+.mas_vendidos {
+  padding: 2rem 0rem;
+  width: 100%;
+}
+
+.mas_vendidos h3 {
+  padding-left: 2rem;
+}
+
+.container_card_home {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 0 auto;
+  width: auto;
+  gap: 1rem;
+  justify-content: center;
+  height: 5%;
+}
+
+.btn-left,
+.btn-right {
+  display: none;
+}
+
+/* CARD */
+.card_home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  box-shadow: 0px 5px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 13.5rem; 
+  height: 20rem;
+}
+
+.card_home:hover {
+  border: 3px solid #c4c754;
+}
+
+.card_home img {
+  width: 100%;
+  border-radius: 120px;
+  margin-top: 8rem;
+  padding: 1rem;
+}
+
+.card-content_home {
+  margin-top: 10px;
+}
+
+.card-content_home p {
+  font-size: 1rem;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.btn_card_home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 9rem;
+  gap: 10px;
+  width: 100%;
+  height: 48px;
+  border: #fc5c9c;
+  background: #fc5c9c;
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.btn_card_home:hover {
+  background: #ff84b5;
+}
+
+@media (max-width: 1300px) {    
+  .mas_vendidos h3 {
+    padding-left: 1px;
+    text-align: center;
+  }
+
+  .container_card_home {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    align-items: center;
+    /*z-index: 99;*/
+    padding: 5px;
+    margin: 0 0;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  
+  .container_card_home::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .container_card_home::-webkit-scrollbar-thumb {
+    background-color: #ff84b5; 
+    border-radius: 5px; 
+  }
+
+  .container_card_home::-webkit-scrollbar-track {
+    background-color: #f0f0f0;  
+  }
+
+  .card_home {
+    position: static;
+    object-fit: cover;
+    scroll-snap-align: center;
+    padding: 5px;
+    min-width: 200px;
+  }
+
+}
+
+/* Dispositivos pequeños 
+@media (max-width: 480px) {
+  .container_card_home {
+    text-align: center;
+    align-items: center;
+    width: 82%;
+    gap: 2rem;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+
+  .card_home{
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    padding: 1rem;
+  }
+}*/

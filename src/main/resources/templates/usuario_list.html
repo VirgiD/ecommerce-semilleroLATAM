@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista usuario</title>
+</head>
+<body>
+	<form class="form-inline">
+			<div class="form-group mb-2">
+				<label>Filtrar :</label>
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<input type="text" name="palabraClave" class="form-control"
+					id="palabraClave" th:value="${palabraClave}"
+					placeholder="Busque un producto" required>
+			</div>
+			<input type="submit" class="btn btn-secondary mb-2" value="Buscar">
+			&nbsp;&nbsp; <a th:href="@{/usuario/lista}"> <input
+				type="button" class="btn btn-secondary mb-2" value="Limpiar">
+			</a>
+	<div class="container">
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">Nombre</th>
+					<th scope="col">Email</th>
+					<th scope="col">Contraseña</th>
+					<th scope="col">Modificar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario : ${usuarios}">
+					<td th:text="${usuario.nombre}"></td>
+					<td th:text="${usuario.email}"></td>
+					<td th:text="${usuario.contrasena}"></td>
+					<td><a th:href="@{/usuario/modificar/__${usuario.id}__}"><button type="button" class="btn btn-danger">Modificar</button></a></td>
+					<td><a th:href="@{/usuario/eliminar/__${usuario.id}__}"><button type="button" class="btn btn-danger">Eliminar</button></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

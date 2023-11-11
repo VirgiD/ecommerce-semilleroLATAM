@@ -1,0 +1,318 @@
+header {
+    display: flex;
+    align-items: center;
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    background: #c4c754;
+  }
+
+  .logo {
+    max-width: 5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+  }
+
+  /* MENU HAMBURGUESA */
+
+  /* Estilos del botón de apertura */
+  #openModal {
+    background-color: #c4c754;
+    color: #0c0707;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+
+  /* Estilos del modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Estilos del contenido del modal */
+  .modal-content {
+    background-color: #c4c754;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+  }
+
+  /* Estilos del botón de cierre */
+  .close {
+    color: #888;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Estilos de la lista de enlaces del menú */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul li {
+    margin-bottom: 10px;
+  }
+
+  ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  ul li a:hover {
+    text-decoration: underline;
+  }
+
+  #btnGroupAddon2 {
+    background-color: #fc5c9c;
+    border: #fc5c9c;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+
+  }
+
+  .input-group .form-control {
+    display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 1.5rem;
+  width: 250px;
+  height: 42px;
+  box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.17);
+  border-radius: 16px;
+  }
+
+  .container_1 {
+    margin: 0.1rem 0.7rem 0.5rem 0.8rem;
+  }
+
+  .container_2 {
+    margin: 0.1rem 8rem 0.3rem 40rem;
+  }
+
+  .container_3 {
+    margin: 0.1rem 0.7rem 0.3rem 20rem;
+  }
+
+  .container_4 {
+    margin: 0.1rem 0.7rem 0.3rem 1rem;
+  }
+
+  .img_icon_ham {
+    width: 25px;
+  }
+
+  .img_icon_ham_close {
+    width: 18px;
+    margin: 0.1rem 0.7rem 0.5rem 0.8rem;
+  }
+
+  /* MEDIA QUERIES */
+  @media only screen and (max-width: 740px) {
+
+    .input-group .form-control {
+      display: none;
+    }
+
+    #btnGroupAddon2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 2px;
+      gap: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50px;
+    }
+
+    .container_1 {
+      margin: 0.1rem 0.7rem 0.5rem 0.6rem;
+    }
+
+    .container_2 {
+      margin: 0.1rem 0.1rem 0.3rem 5.5rem;
+    }
+
+    .container_3 {
+      margin: 0.1rem 0.7rem 0.3rem 3rem;
+    }
+
+    .container_4 {
+      margin: 0.1rem 0.2rem 0.3rem 0.7rem;
+    }
+  }
+
+  /* Cuerpo */
+  .main_login {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.75);
+    background-image: url('../../assets/img/background.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contenedor {
+    display: flex;
+    width: 90%;
+    height: 560px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(4px);
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .columna {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .usuario {
+    flex-direction: column;
+  }
+
+  .boton-inicio {
+    width: 211px;
+    height: 48px;
+    background: #FC5C9C;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border: none;
+  }
+
+  .boton-inicio:hover{
+    background: #fa65a1;
+  }
+
+  .inputs {
+    align-self: flex-start;
+    padding: 10px 16px;
+    gap: 10px;
+    width: 90%;
+    height: 48px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.17);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border: none;
+  }
+
+  .inputs::placeholder{
+    font-weight: 600;
+  }
+
+  .inputs:focus {
+    outline: 2px solid #C4C754;
+  }
+
+  .titulo-sesion{
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 24px;
+    align-self: start;
+  }
+
+  .checkboxField {
+    align-self: start;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #recordar:checked {
+    background-image: url("../assets/icons/checkbox_on.svg");
+  }
+
+  #recordar {
+    cursor: pointer;
+    background-image: url("../assets/icons/checkbox_off.svg");
+    width: 23px;
+    height: 23px;
+    appearance: none;
+  }
+
+  #olvidaste{
+    font-weight: 500;
+  }
+
+  .enlace-negro {
+    color: black;
+    font-weight: 600;
+    margin: 8px;
+  }
+
+
+  @media screen and (max-width: 1024px){
+    .bienvenida img{
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    .bienvenida img{
+      width: 50%;
+    }
+
+    .main_login {
+      height: auto;
+    }
+
+    .contenedor {
+      margin: 5rem 0;
+      flex-direction: column;
+      height: auto;
+    }
+
+    .columna {
+      width: 100%;
+    }
+
+    .columna h2, .columna p {
+      width: 90%;
+      text-align: center;
+      align-self: auto;
+    }
+
+    .inputs {
+      align-self: auto;
+      width: 90%;
+    }
+
+    .checkboxField {
+      align-self: auto;
+    }
+  }
+
+  @media screen and (max-width: 520px){
+    .bienvenida img{
+      width: 90%;
+    }
+  }

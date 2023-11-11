@@ -1,0 +1,41 @@
+<div th:fragment="cardproducts" class="mas_vendidos">
+    <h3>Más vendidos:</h3>
+
+    <div th:fragment="cardproducts" class="container_card_home" id="container_card_home">
+        <div th:fragment="card_home" class="card_home" id="">
+            <img th:src="@{/assets/img/img_cards/clasico.jpg}" alt="Imagen de la tarjeta" />
+            <div class="card-content_home">
+                <p>Mix clasico</p>
+            </div>
+            <button onclick="window.location='/productos/listar'" class="btn_card_home" type="button">Ver más</button>
+        </div>
+        <div th:fragment="card_home" class="card_home" id="">
+            <img th:src="@{/assets/img/img_cards/mix-frutal.jpg}" alt="Imagen de la tarjeta" />
+            <div class="card-content_home">
+                <p>Mix Frutal</p>
+            </div>
+            <button onclick="window.location='/productos/listar'" class="btn_card_home" type="button">Ver más</button>
+        </div>
+        <div th:fragment="card_home" class="card_home" id="">
+            <img th:src="@{/assets/img/img_cards/mix-generico.jpg}" alt="Imagen de la tarjeta" />
+            <div class="card-content_home">
+                <p>Mix Energetico</p>
+            </div>
+            <button onclick="window.location='/productos/listar'" class="btn_card_home" type="button">Ver más</button>
+        </div>
+        <div th:fragment="card_home" class="card_home" id="">
+            <img th:src="@{/assets/img/img_cards/frutos-del-bosque.jpg}" alt="Imagen de la tarjeta" />
+            <div class="card-content_home">
+                <p>Mix Frutos del Bosque</p>
+            </div>
+            <button onclick="window.location='/productos/listar'" class="btn_card_home" type="button">Ver más</button>
+        </div>
+        <div th:fragment="card_home" class="card_home" id="">
+            <img th:src="@{/assets/img/img_cards/granola-energetica.jpg}" alt="Imagen de la tarjeta" />
+            <div class="card-content_home">
+                <p>Mix de Granola Energetica</p>
+            </div>
+            <button onclick="window.location='/productos/listar'" class="btn_card_home" type="button">Ver más</button>
+        </div>
+    </div>
+</div>

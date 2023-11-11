@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" th:href="@{/assets/puntoOrganicoLogo.png}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos_generales.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/quienes_somos.css}">
+    <title>Punto Orgánico</title>
+</head>
+
+
+<body>
+
+<header th:replace="./fragments/navbar :: navbar"></header>
+
+<main>
+    <div class="container_quienes_somos">
+        <div class="container_encabezado">
+            <img th:src="@{assets/img/img_quienes.png}" alt="" width="100%"/>
+        </div>
+
+        <h3>¿Quiénes somos?</h3>
+
+        <p class="container_p">¡Te damos la bienvenida a Punto Orgánico! <br><br>
+            Somos una tienda especializada en meriendas y alimentos saludables, comprometidos con tu bienestar y el
+            cuidado del medio ambiente. <br><br>
+            En Punto Orgánico, nos apasiona ofrecerte opciones nutritivas y deliciosas que se ajusten a tu estilo de
+            vida. Trabajamos con ingredientes cuidadosamente seleccionados. <br><br>
+            Nuestra misión es fomentar una alimentación consciente y equilibrada, brindándote alternativas saludables y
+            sabrosas para disfrutar en cualquier momento del día. Desde nuestras meriendas energéticas hasta nuestros
+            mix de frutos secos, cada producto está diseñado con amor y dedicación. <br><br>
+            Unite a nuestra comunidad de amantes de la vida saludable! Explorá nuestra tienda en línea, descubrí
+            nuestras opciones nutritivas y deliciosas, y comenzá a disfrutar de una experiencia única con Punto
+            Orgánico. Juntos, podemos marcar la diferencia en nuestra alimentación y en el mundo que nos rodea. <br><br>
+            Gracias por elegirnos. Estamos emocionados de ser parte de tu viaje hacia una vida más saludable y
+            consciente con Punto Orgánico. <br><br>
+        </p>
+
+        <div class="container_video">
+            <iframe width="860" height="615" src="https://www.youtube.com/embed/zIqckTdQhvE?si=TrrQjbY58nCW_Ayb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+
+    </div>
+</main>
+<footer th:replace="./fragments/footer :: footer"></footer>
+
+</body>
+<script th:src="@{/js/navbar.js}"></script>
+</html>

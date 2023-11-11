@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Metadatos -->
+  <meta charset="UTF-8">
+  <meta name="description" content="Punto Organico">
+  <meta name="keywords" content="Frutos, Secos, Snacks, Salud, Nutricion">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+  <!-- Título -->
+  <title>Punto Orgánico</title>
+  <!-- Icono -->
+  <link rel="icon" type="image/x-icon" th:href="@{/assets/puntoOrganicoLogo.png}">
+  <!-- Default -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<header th:replace="./fragments/navbar :: header"></header>
+
+<main class="main_login">
+  <div class="contenedor">
+    <div class="columna bienvenida">
+      <img th:src="@{/assets/img/chica-sentada.png}" alt="Logo Punto Organico">
+    </div>
+    <form class="columna usuario" th:action="@{/logincheck}" method="POST">
+      <h2 class="titulo-sesion">Iniciar sesión</h2>
+      <input type="text" id="usuario" name="nombre" placeholder="Usuario" class="inputs">
+      <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" class="inputs">
+<!--      <div class="checkboxField">-->
+<!--        <input type="checkbox" id="recordar" name="recordar">-->
+<!--        <label for="recordar" class="recordar-datos">-->
+<!--          Recordar datos-->
+<!--        </label>-->
+<!--      </div>-->
+      <button class="boton-inicio" type="submit">
+        <a th:href="@{http://localhost:8080/productos/editar}" style="color:black; text-decoration: none;">
+          <b>Iniciar sesión</b>
+        </a>
+      </button>
+<!--      <p id="olvidaste">¿Olvidaste tu contraseña? <a href="#" class="enlace-negro">Haz clic aquí</a></p>-->
+    </form>
+  </div>
+</main>
+<footer th:replace="./fragments/footer :: footer"></footer>
+<script th:src="@{/js/navbar.js}"></script>
+</body>
+
+</html>

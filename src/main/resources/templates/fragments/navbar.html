@@ -1,0 +1,44 @@
+<header th:fragment="navbar">
+
+  <nav>
+    <div class="col right_col">
+      <button id="menu_icon" class="menu_icon"></button>
+    </div>
+
+    <div class="col center_col">
+      <a th:href="@{/}">
+        <img th:src="@{/assets/puntoOrganicoLogo.png}" alt="Logo" />
+      </a>
+    </div>
+
+    <form action="/productos/listar" method="get">
+      <div class="col left_col">
+        <input type="text" name="palabraClave" id="palabraClave" th:value="${palabraClave}" placeholder="Buscar producto" />
+        <button class="search_icon" type="submit">
+          <!-- Agrega un ícono de búsqueda con texto alternativo -->
+          <i class="fas fa-search" aria-label="Buscar"></i>
+        </button>
+      </div>
+    </form>
+
+    <!-- Este elemento tiene que estar condicionado por el admin -->
+    <div class="left_col_bag" id="bag">
+      <img th:src="@{/assets/img/bolsa.png}" alt="shopping bag" onclick="toggleShopingBAG()">
+      <p id="shoppingBAG">0</p>
+    </div>
+
+
+    <div id="menu_options" class="menu_options">
+      <div class="options_container">
+        <ul>
+          <!-- nuestro productos que es? es un dropwdown que meustra opcioones? -->
+          <li><a class="options" th:href="@{/}">Home</a></li>
+          <li><a class="options" th:href="@{/productos/listar}">Nuestros productos</a></li>
+          <li><a class="options" th:href="@{/quienessomos}">¿Quiénes somos?</a></li>
+          <li><a class="options" th:href="@{/#revende_con_nosotros}">Revende con nosotros</a></li>
+          <li><a class="options" th:href="@{/login}">Iniciar sesión como Administrador</a></li>
+      </div>
+    </div>
+
+  </nav>
+</header>

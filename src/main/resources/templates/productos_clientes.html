@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/carrito_compras.css}">
+  <link rel="stylesheet" th:href="@{/css/productos_clientes.css}">
+  <link rel="stylesheet" th:href="@{/css/button_compra.css}">
+  <link rel="stylesheet" th:href="@{/css/estilos_generales.css}">
+  <link rel="stylesheet" th:href="@{/css/card_products.css}">
+  <link rel="stylesheet" th:href="@{/css/footer.css}">
+  <title>Punto Orgánico</title>
+</head>
+
+<body>
+  <header th:replace="./fragments/navbar :: header"></header>
+
+  <!-- CARRITO COMPRAS -->
+  <div id="box_shopping" class="shoppingcard-container">
+    <span class="salir" onclick="toggleShopingBAG()">X</span>
+    <p>Tu pedido</p>
+    <div id="secondCol" class="row-top">
+      <div id="no_hay_productos_mensaje" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+        <p style="opacity: 40%;">NO HAY PRODUCTOS AGREGADOS</p>
+      </div>
+    </div>
+    <div id="thirdCol" class="total">
+      Total: $0
+    </div>
+    <div id="fourdCol" class="row row-bottom">
+      <button type="button" class="btn-primary" onclick="verPedido();">Ver pedido</button>
+      <button type="button" class="btn-secondary" data-dismiss="modal" onclick="toggleShopingBAG()">Seguir
+        comprando</button>
+    </div>
+  </div>
+
+  <!-- FIN CARRITO COMPRAS -->
+
+  <!-- MAIN -->
+  <main>
+    <div th:replace="./fragments/cardproducts :: cardproducts"></div>
+    <div class="container-fluid">
+      <h1>Nuestros Productos</h1>
+      <div>
+        <div th:each="producto : ${productos}" class="cards-container">
+          <div class="card">
+            <div class="card_col-left ">
+              <img id="imagen1" th:src="@{/foto/producto/__${producto.id}__}" />
+              <div class="card_details">
+                <div class="card_details-price">
+                  <h3 id="titulo1" th:text="${producto.nombre}"></h3>
+                  <h3 id="peso1" th:text=" ${producto.peso} +' grs'"></h3>
+                  <h3 id="precio1" th:text="'$'+${producto.precioFormatted}"></h3>
+                  <p id="description1" th:text="${producto.descripcion}" class="card_details-description">
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card_col-right">
+              <button th:id="${producto.id}" class="btnAddProduct btn-primary"
+                th:onclick="agregandoProductosCanasta([[${producto}]])">
+                <img th:src="@{/assets/icons/bolso.svg}" alt="bolsa compras">
+
+                <div class="container_cantidad" style="box-sizing: border-box; margin: 0;padding: 0;" hidden>
+                  <span class="producto-seleccionado" th:onclick="agrearQuitarCantidad(this)">-</span>
+                  <input class="producto-seleccionado" type="number" value="1" th:id="inpc-+${producto.id}"
+                    style="width: 5rem;  background-color: #FC5C9C; text-align: center; border:none; color: white; font-weight: 900; outline: none; user-select: none;"
+                    readonly>
+                  <span class="producto-seleccionado" th:onclick="agrearQuitarCantidad(this)"> + </span>
+                </div>
+
+                <p>Añadir pedido</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div th:replace="./fragments/cardproducts :: cardproducts"></div> -->
+  </main>
+  <!-- FIN MAIN -->
+  <footer th:replace="./fragments/footer :: footer"></footer>
+</body>
+
+
+<!-- Script necesarios en esta vista
+
+
+-->
+<script th:src="@{/js/navbar.js}"></script>
+<script th:src="@{/js/compras_productos.js}"></script>
+<script type="text/javascript" th:src="@{/js/card_products.js}"></script>
+<script th:src="@{/js/controller/comprasController.js}"></script>
+
+
+</html>
